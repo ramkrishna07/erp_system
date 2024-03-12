@@ -1,7 +1,8 @@
 .product-container{
+      width: 100%;
       display: flex;
       flex-direction: row;
-      align-items: center;
+      /* align-items: center; */
       gap: 10px;
 }
 .product-table{
