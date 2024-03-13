@@ -90,3 +90,13 @@
     width: 80%;
   }
 }
+@media only screen and (max-width: 465px) {
+  .orders-calendar{
+    padding: 20px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .orders-calendar{
+    padding: 10px;
+  }
+}

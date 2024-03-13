@@ -24,13 +24,6 @@ const Navbar = () => {
         <Link to="../calendar"><li><CalendarMonthIcon color='blue'/><span>Calendar</span></li></Link>
       </ul>
     </div>
-    <div className='navbar-right'>
-      <ul>
-        {/* <li>search</li>
-        <li>notification</li>
-        <li>settings</li> */}
-      </ul>
-    </div>
   </div>
   </ThemeProvider>
   )
