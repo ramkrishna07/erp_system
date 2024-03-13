@@ -292,3 +292,8 @@ svg{
         width: 88%;
     }
 }
+@media only screen and (max-width: 400px) {
+    .poster,.transaction,.tabs,.summary,.graph{
+        width: 83%;
+    }
+}

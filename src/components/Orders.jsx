@@ -177,7 +177,7 @@ export default function Orders() {
       <Navbar/>
     <Box
     className='product-table'
-    p="20px "
+    // p="20px "
     // m="40px 0 0 0"
     height="92vh"
     sx={{
