@@ -62,16 +62,16 @@ Once the application is running, you can interact with it using your web browser
 Here are some screenshots of the ERP system frontend:
 
 ### Dashboard
-![Dashboard](../erp_system/src/screenshot/dashboard.png)
+![Dashboard](./src/screenshot/dashboard.png)
 
 ### Products Management
-![Products Management](../erp_system/src/screenshot/product.png)
+![Products Management](./src/screenshot/product.png)
 
 ### Orders Management
-![Orders Management](../erp_system/src/screenshot/order.png)
+![Orders Management](./src/screenshot/order.png)
 
 ### Orders Calendar View
-![Orders Calendar View](../erp_system/src/screenshot/order_calendar.png)
+![Orders Calendar View](./src/screenshot/order_calendar.png)
 
 
 
