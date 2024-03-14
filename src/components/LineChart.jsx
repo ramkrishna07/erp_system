@@ -1,11 +1,8 @@
 import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
-// import { tokens } from "../theme";
 import { mockLineData as data } from "../data/mockData";
-import './calendar.css';
+import './Linechart.css';
 const LineChart = () => {
-  // const theme = useTheme();
-  // const colors = tokens(theme.palette.mode);
 
   return (
     
@@ -45,7 +42,7 @@ const LineChart = () => {
             },
           },
         }}
-        colors={{scheme:"nivo"}}
+        colors={{datum:"color"}}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
         yScale={{
@@ -63,7 +60,7 @@ const LineChart = () => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'transportation',
+            legend: 'product',
             legendOffset: 36,
             legendPosition: 'middle',
             //truncateTickAt: 0

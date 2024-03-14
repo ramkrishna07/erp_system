@@ -1,16 +1,16 @@
 import React from 'react'
 import "./Dashboard.css";
-import { data } from '../data/mockData';
-import LineChart from './LineChart';
-import Navbar from './Navbar';
-import './Navbar.css';
+import { data } from '../../data/mockData';
+import LineChart from '../LineChart';
+import Navbar from '../Navbar/Navbar';
 import MessageIcon from '@mui/icons-material/Message';
 import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import PersonIcon from '@mui/icons-material/Person';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import NavigationIcon from '@mui/icons-material/Navigation';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 const theme = createTheme({
   palette: {
     green:{
@@ -28,20 +28,17 @@ const Dashboard = () => {
   return (
     <ThemeProvider theme={theme}>
     <div className='container'>
-    {/* <div className='navbar-container'> */}
         <Navbar/>
-    {/* </div> */}
     <div className='dashboard'>
-      {/* <h3>welcome to dashboard</h3> */}
       
      
       <div className='top'>
         <div className='poster'>
           <div className='poster-heading'>
-            <h2>hello, Ramkrishna Saha</h2>
+            <h2>Hello, Ramkrishna Saha</h2>
           </div>
           <div className='poster-desc'>
-            <p>here is your review summary</p>
+            <p>Here is your review summary</p>
           </div>
           <div className='poster-badge'>
             <div className='poster-badge-item'>
@@ -51,7 +48,7 @@ const Dashboard = () => {
               <div className='poster-badge-content'>
 
               <div className='poster-badge-desc'>
-                new request
+                New request
               </div>
               <div className='poster-badge-count'>
                 12
@@ -64,7 +61,7 @@ const Dashboard = () => {
               </div>
               <div className='poster-badge-content'>
               <div className='poster-badge-desc'>
-                notification
+                Notification
               </div>
               <div className='poster-badge-count'>
                 25
@@ -75,7 +72,7 @@ const Dashboard = () => {
         </div>
         <div className='transaction'>
           <div className='transaction-heading'>
-            <p>recent transaction</p>
+            <p>New requests</p>
           </div>
           {data.map((transaction,i)=>(
           <div key={`${transaction.id}-${i}`} className='transaction-list'>
@@ -90,18 +87,24 @@ const Dashboard = () => {
                 <div className='transaction-id'>
                   <p>{transaction.id}</p>
                 </div>
-                <div className='transaction-date'>
-                  <p>{transaction.date}</p>
-                </div>
+                  {
+                    transaction.priority=='High Priority'?
+                    <div className='transaction-date'
+                    style={{border:"1px solid #d31e5b",color:"#d31e5b",boxShadow:"inset #d31e5b 0px 0px 3px 0px"}}>
+                      <p>{transaction.priority}</p>
+                    </div>:
+                    <div className='transaction-date'
+                    style={{border:"1px solid #1ed329",color:"#1ed329",boxShadow:"inset #1ed329 0px 0px 3px 0px"}}>
+                      <p>{transaction.priority}</p>
+                    </div>
+                  }
+                  
+                
             </div>
             
             
           </div>
           ))}
-          {/* <div className='transaction-more'>
-            <p>view all</p>
-            <button>arrow</button>
-          </div> */}
         </div>
         <div className='tabs'>
           <div className='users'>
@@ -110,10 +113,12 @@ const Dashboard = () => {
             </div>
             <div>
               <div>
-                <p>total user</p>
+                <p>Total User</p>
               </div>
-              <div>
-                <h2>19MTR</h2>
+              <div style={{display:"flex"}}>
+                <h2>4.9M</h2>
+                {/* <br /> */}
+                <span style={{display:"flex",alignItems:"center",color:"#d31e5b",fontWeight:650,}}><ArrowDropDownIcon color='red'/><p>4%</p></span>
               </div>
             </div>
           </div>
@@ -123,10 +128,12 @@ const Dashboard = () => {
             </div>
             <div>
               <div>
-                <p>total order</p>
+                <p>Total Order</p>
               </div>
-              <div>
-                <h2>378MTR</h2>
+              <div style={{display:"flex"}}>
+                <h2>237M</h2>
+                {/* <br /> */}
+                <span style={{display:"flex",alignItems:"center",color:"#5fd938",fontWeight:650,}}><ArrowDropUpIcon color='green'/><p>5.7%</p></span>
               </div>
             </div>
           </div>
@@ -135,17 +142,19 @@ const Dashboard = () => {
       <div className='bottom'>
         <div className='summary'>
           <div>
-            <h2>summary</h2>
+            <h2>Summary</h2>
           </div>
           <div>
             <h1>7642</h1>
+            <br />
+            <p style={{fontWeight:650}}>Total delivered (last 30 days)</p>
           </div>
           <div className='summary-growth'>
             <div className='summary-growth-icon'>
-              <NavigationIcon color='green'/>
+              <ArrowDropUpIcon color='green'/>
             </div>
             <div className='summary-growth-desc'>
-              <p>you have a 25% growth in comp</p>
+              <p>You have a <span style={{color:"#5fd938",fontWeight:650,}}>25% growth</span> in comp</p>
             </div>
           </div>
           <div className='summary-target'>
@@ -153,7 +162,7 @@ const Dashboard = () => {
               <CheckCircleIcon color='red'/>
             </div>
             <div className='summary-target-desc'>
-              <p>your target for this month</p>
+              <p>Your target for this month</p>
             </div>
           </div>
         </div>
@@ -161,8 +170,6 @@ const Dashboard = () => {
           <LineChart/>
         </div>
       </div>
-       {/* <Link to="/products">Products Management</Link>
-       <Link to="/orders">Orders Management</Link> */}
   </div>
   </div>
   </ThemeProvider>

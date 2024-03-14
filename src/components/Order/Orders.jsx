@@ -12,16 +12,10 @@ import {
   GridToolbarContainer,
   GridActionsCellItem,
   GridRowEditStopReasons,
-  GridToolbar
 } from '@mui/x-data-grid';
 import {randomId} from '@mui/x-data-grid-generator';
-import {productData} from '../data/mockData';
-import './products.css';
-import Navbar from './Navbar';
-// const category = ['Market', 'Finance', 'Development'];
-// const categorylist = () => {
-//   return randomArrayItem(category);
-// };
+import {orderData} from '../../data/mockData';
+import Navbar from '../Navbar/Navbar';
 
 
 function EditToolbar(props) {
@@ -39,20 +33,20 @@ function EditToolbar(props) {
   return (
     <GridToolbarContainer>
       <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-        Add record
+        Add order
       </Button>
     </GridToolbarContainer>
   );
 }
 
-export default function Products() {
+export default function Orders() {
 
   const getRowHeight = () => {
     // Return the fixed height for each row
     return 100; // Height in pixels
   };
-  //const [data, setData] = useState(productData);
-  const [rows, setRows] = React.useState(productData);
+  //const [data, setData] = useState(orderData);
+  const [rows, setRows] = React.useState(orderData);
   const [rowModesModel, setRowModesModel] = React.useState({});
 
   const handleRowEditStop = (params, event) => {
@@ -97,6 +91,12 @@ export default function Products() {
 
   const columns = [
     { field: 'image', headerName: 'Image', width: 150, renderCell: (params) => (<img src={params.value} alt="user" style={{width: '50px', height: '50px', borderRadius: '50%'}}/>)},
+    {
+      field:'id',
+      headerName:'Order Id',
+      type:'string',
+      flex:1
+    },
     { 
       field: 'name',
       headerName: 'Name',
@@ -105,26 +105,19 @@ export default function Products() {
       editable: true 
     },
     {
-      field: 'category',
-      headerName: 'Category',
+      field: 'date',
+      headerName: 'Order Date',
+      type: 'date',
+      flex:1,
+      editable: true,
+    },
+    {
+      field: 'status',
+      headerName: 'Status',
       type: 'singleSelect',
-      valueOptions: ['Market', 'Finance', 'Development'],
+      valueOptions: ["Pending","Delivered","Shipped"],
       flex:1,
       editable: true,
-    },
-    {
-      field: 'price',
-      headerName: 'Price',
-      type: 'number',
-      flex:1,
-      editable: true,
-    },
-    {
-      field: 'quantity',
-      headerName: 'Quantity',
-      flex:1,
-      editable: true,
-      type: 'number',
     },
     {
       field: 'actions',
@@ -196,7 +189,7 @@ export default function Products() {
         color: "#2e7c67",
       },
       "& .MuiDataGrid-columnHeaders": {
-        backgroundColor: "#a4a9fc",
+        backgroundColor: "#386cd9",
         // borderBottom: "none",
       },
       "& .MuiDataGrid-virtualScroller": {
@@ -204,7 +197,7 @@ export default function Products() {
       },
       "& .MuiDataGrid-footerContainer": {
         borderTop: "none",
-        backgroundColor: "#a4a9fc",
+        backgroundColor: "#386cd9",
       },
       "& .MuiCheckbox-root": {
         color: `#1e5245 !important`,

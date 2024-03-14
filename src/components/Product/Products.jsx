@@ -15,13 +15,9 @@ import {
   GridToolbar
 } from '@mui/x-data-grid';
 import {randomId} from '@mui/x-data-grid-generator';
-import {orderData} from '../data/mockData';
-import './Orders.css';
-import Navbar from './Navbar';
-// const quantitys = ['Market', 'Finance', 'Development'];
-// const randomquantity = () => {
-//   return randomArrayItem(quantitys);
-// };
+import {productData} from '../../data/mockData';
+import './products.css';
+import Navbar from '../Navbar/Navbar';
 
 
 function EditToolbar(props) {
@@ -39,20 +35,20 @@ function EditToolbar(props) {
   return (
     <GridToolbarContainer>
       <Button color="primary" startIcon={<AddIcon />} onClick={handleClick}>
-        Add record
+        Add Product
       </Button>
     </GridToolbarContainer>
   );
 }
 
-export default function Orders() {
+export default function Products() {
 
   const getRowHeight = () => {
     // Return the fixed height for each row
     return 100; // Height in pixels
   };
-  //const [data, setData] = useState(orderData);
-  const [rows, setRows] = React.useState(orderData);
+  //const [data, setData] = useState(productData);
+  const [rows, setRows] = React.useState(productData);
   const [rowModesModel, setRowModesModel] = React.useState({});
 
   const handleRowEditStop = (params, event) => {
@@ -96,13 +92,7 @@ export default function Orders() {
   };
 
   const columns = [
-    { field: 'image', headerName: 'Image', width: 150, renderCell: (params) => (<img src={params.value} alt="user" style={{width: '50px', height: '50px', borderRadius: '50%'}}/>)},
-    {
-      field:'id',
-      headerName:'Order Id',
-      type:'string',
-      flex:1
-    },
+    { field: 'image', headerName: 'Image', width: 150, renderCell: (params) => (<img src={params.value} alt="user" style={{width: '70px', height: '70px', borderRadius: '8px'}}/>)},
     { 
       field: 'name',
       headerName: 'Name',
@@ -111,18 +101,26 @@ export default function Orders() {
       editable: true 
     },
     {
-      field: 'date',
-      headerName: 'Order Date',
-      type: 'date',
+      field: 'category',
+      headerName: 'Category',
+      type: 'singleSelect',
+      valueOptions: ["Food","Beverage","Dairy","Meat","Seafood","Frozen Food"],
       flex:1,
       editable: true,
     },
     {
-      field: 'status',
-      headerName: 'Status',
-      type: 'boolean',
+      field: 'price',
+      headerName: 'Price',
+      type: 'number',
       flex:1,
       editable: true,
+    },
+    {
+      field: 'quantity',
+      headerName: 'Quantity',
+      flex:1,
+      editable: true,
+      type: 'number',
     },
     {
       field: 'actions',
@@ -194,7 +192,7 @@ export default function Orders() {
         color: "#2e7c67",
       },
       "& .MuiDataGrid-columnHeaders": {
-        backgroundColor: "#a4a9fc",
+        backgroundColor: "#386cd9",
         // borderBottom: "none",
       },
       "& .MuiDataGrid-virtualScroller": {
@@ -202,7 +200,7 @@ export default function Orders() {
       },
       "& .MuiDataGrid-footerContainer": {
         borderTop: "none",
-        backgroundColor: "#a4a9fc",
+        backgroundColor: "#386cd9",
       },
       "& .MuiCheckbox-root": {
         color: `#1e5245 !important`,
@@ -216,8 +214,6 @@ export default function Orders() {
         rows={rows || []}
         getRowId={(row) => row.id}
         columns={columns}
-        // components={{ Toolbar: GridToolbar }}
-        // checkboxSelection
         editMode="row"
         rowModesModel={rowModesModel}
         onRowModesModelChange={handleRowModesModelChange}

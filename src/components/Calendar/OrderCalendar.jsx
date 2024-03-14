@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import {mockOrders} from '../data/mockData'
+import {mockOrders} from '../../data/mockData';
 import './OrderCalendar.css';
-import Navbar from './Navbar';
+import Navbar from '../Navbar/Navbar';
 const OrderCalendar = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -45,7 +45,6 @@ const OrderCalendar = () => {
     <div className='orders-calendar-container'>
       <Navbar/>
     <div className="orders-calendar">
-      {/* <h1 className="calendar-title">Orders Calendar View</h1> */}
       <div className="calendar-wrapper">
         <Calendar
           onChange={handleDateChange}

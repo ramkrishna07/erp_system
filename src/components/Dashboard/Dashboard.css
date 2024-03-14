@@ -44,7 +44,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-image: url(../image/bg5.jpg);
+    background-image: url(../../image/bg4.jpg);
     background-size: cover;
     padding: 0px 20px;
 }
@@ -80,6 +80,64 @@
     scrollbar-width: thin;
     padding: 10px 20px 0px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.transaction-heading{
+    font-weight: 650;
+    text-align: left;
+    padding-left: 5px;
+    border-bottom: 1px solid gray;
+}
+.transaction-list{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 0.5px solid grey;
+    height: 30%;
+    gap: 10px;
+    padding: 5px;
+    
+}
+/* .poster-badge-icon,*/
+.transaction-img{ 
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+.transaction-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.transaction-details,.transaction-more{
+    display: flex;
+    flex-direction: column;
+}
+.transaction-name{
+    font-weight: 650;
+}
+.transaction-name p{
+    white-space: nowrap;
+    /* overflow: hidden; */
+    text-overflow: ellipsis;
+}
+.transaction-id{
+    font-weight: 300;
+}
+.transaction-date{
+    margin-top: 8px;
+    padding: 2px;
+    width: fit-content;
+    font-size: small;
+    font-weight: 700;
+    border-radius: 4px;
+}
+.transaction-more{
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
 }
 
 .tabs{
@@ -130,7 +188,9 @@
     width: 40%;
     padding-left: 50px;
     border-radius: 15px 0px 0px 15px;
-
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .summary-growth,.summary-target{
     gap: 10px;
@@ -147,66 +207,7 @@
     width: 60%;
     border-radius: 0px 15px 15px 0px;
 }
-.transaction-heading{
-    text-align: left;
-    padding-left: 5px;
-    border-bottom: 1px solid gray;
-}
-.transaction-list{
-    display: flex;
-    flex-direction: row;
-    border-bottom: 0.5px solid grey;
-    height: 30%;
-    gap: 10px;
-    padding: 5px;
-    
-}
-/* .poster-badge-icon,*/
-.transaction-img{ 
-    width: 40px;
-    height: 40px;
-    position: relative;
-    display: inline-block;
-    margin-top: 10px;
-    border-radius: 50%;
-}
 
-.transaction-img img{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-}
-.transaction-details,.transaction-more{
-    display: flex;
-    flex-direction: column;
-}
-.transaction-name{
-    font-weight: 650;
-}
-.transaction-id{
-    font-weight: 300;
-}
-.transaction-date{
-    margin-top: 10px;
-    padding: 2px;
-    font-size: small;
-    font-weight: 700;
-    border: 1px solid #1ed329;
-    color: #1ed329;
-    border-radius: 4px;
-    box-shadow: inset #1ed329 0px 0px 3px 0px;
-}
-.transaction-more{
-    flex-direction: row;
-    position: absolute;
-    bottom: 0;
-}
-
-.summary{
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
 .summary-growth,.summary-target{
     display: flex;
     flex-direction: row;
@@ -226,15 +227,12 @@ svg{
 }
 @media only screen and (max-width: 840px) {
     .container{
-        /* height: 540px; */
         overflow: hidden;
     }
     .dashboard{
-        /* height: 100%; */
         width: 80%;
         padding-top: 50px;
         justify-content: flex-start;
-        /* height: max-content; */
         height: 100%;
         overflow: scroll;
     }
